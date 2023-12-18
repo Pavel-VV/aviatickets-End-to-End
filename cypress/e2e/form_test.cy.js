@@ -39,10 +39,40 @@ context('Form', () => {
 
         //Input depart date matches the condition
         cy.get('@datePickerDepartInput').then(($input) => {
-            const val =$input.val()
+            const val = $input.val()
             //2023-12
             expect(val).to.match(/^\d{4}-\d{2}$/)
         })
+
+        //When clicking on the return datepicker the datepicker modal should open
+        cy.get('[data-hook=datePickerReturnInput]').as('datePickerReturnInput')
+        cy.get('[data-hook=datePickerReturnWrap] .datepicker-container').as('modalWindow')
+        
+        cy.get('@datePickerReturnInput').click()
+        cy.get('@modalWindow').should('be.visible')
+
+        //After selecting the return date, it should be displayed in the input field in the rignt format
+        cy.get('[data-hook=datePickerReturnWrap] .datepicker-container .is-today').as('isToday')
+        cy.get('[data-hook=datePickerReturnWrap] .datepicker-container .btn-flat').as('modalButtons')
+
+        cy.get('@isToday').click()
+        cy.get('@isToday').should('have.class', 'is-selected')
+        cy.get('@modalButtons').contains('Ok').click()
+
+        //Input return date matches the condition
+        cy.get('[data-hook=datePickerReturnInput]').then(($input) => {
+            const val = $input.val()
+            //2023-12
+            expect(val).to.match(/^\d{4}-\d{2}$/)
+        })
+
+        //When selecting the currency from the header dropdown  it should be changed and visible in the header
+        cy.get('[data-hook=currencySelect] .dropdown-trigger').as('currencyTrigger')
+        cy.get('[data-hook=currencySelect] .dropdown-content li').as('currencyItems')
+
+        cy.get('@currencyTrigger').click()
+        cy.get('@currencyItems').contains('€ Euro').click()
+        cy.get('@currencyTrigger').should('have.value', '€ Euro')
     })
 
     // it('When typing a value into destination city autocomplete, this autocomplete is visible and has typed value', () => {
