@@ -21,6 +21,27 @@
         }
     },
     {
+        "country_code": "RU",
+        "code": "MOW",
+        "coordinates": {
+            "lat": 55.755787,
+            "lon": 37.617634
+        },
+        "name": "Москва",
+        "time_zone": "Europe/Moscow",
+        "name_translations": {
+            "en": "Moscow"
+        },
+        "case": {
+            "da": "Москве",
+            "pr": "Москве",
+            "ro": "Москвы",
+            "su": "Москва",
+            "tv": "Москвой",
+            "vi": "в Москву"
+        }
+    },
+    {
         "country_code": "FR",
         "code": "PAR",
         "coordinates": {

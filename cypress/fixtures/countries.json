@@ -16,6 +16,22 @@
         }
     },
     {
+        "code": "RU",
+        "name": "Россия",
+        "currency": "RUB",
+        "name_translation": {
+            "en": "Russia"
+        },
+        "case": {
+            "da": "России",
+            "pr": "России",
+            "ro": "России",
+            "su": "Россия",
+            "tv": "Россией",
+            "vi": "в Россию"
+        }
+    },
+    {
         "code": "FR",
         "name": "Франция",
         "currency": "EUR",

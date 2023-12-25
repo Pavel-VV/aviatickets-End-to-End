@@ -120,11 +120,11 @@
                         <form name="locationControls" data-hook="mainForm">
                             <div class="card-content">
                                 <span class="card-title">Card Title</span>
-                                <div class="input-field">
+                                <div class="input-field input-origin">
                                     <input type="text" id="autocomplete-origin" class="autocomplete" data-hook="autocompleteOrigin">
                                     <label for="autocomplete-origin">Origin</label>
                                 </div>
-                                <div class="input-field">
+                                <div class="input-field input-destination">
                                     <input type="text" id="autocomplete-destination" class="autocomplete" data-hook="autocompleteDestination">
                                     <label for="autocomplete-destination">Destination</label>
                                 </div>
@@ -138,10 +138,10 @@
                                 </div>
                             </div>
                             <div class="card-action d-flex">
-                                <button class="btn waves-effect waves-light purple darken-3" type="submit" name="action">Search
+                                <button class="btn waves-effect waves-light purple darken-3" type="submit" name="action" data-hook="submitButton">Search
                                     <i class="material-icons right">send</i>
                                 </button>
-                                <button class="btn waves-effect waves-light pink darken-3 ml-auto " type="reset" name="action">reset
+                                <button class="btn waves-effect waves-light pink darken-3 ml-auto " type="reset" name="action" data-hook="resetButton">reset
                                     <i class="material-icons right">cancel</i>
                                 </button>
                             </div>

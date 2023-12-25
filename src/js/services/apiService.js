@@ -15,6 +15,8 @@ export class Api {
     async countries() {
         try{
             const response = await axios.get(`${this.url}/countries`);
+            // console.log(response.data)
+            // console.log(JSON.stringify({"name_translations":{"en":"Russia"},"cases":{"da":"России","pr":"России","ro":"России","su":"Россия","tv":"Россией","vi":"в Россию"},"code":"RU","name":"Россия","currency":"RUB"}))
             return response.data;
         } catch(err) {
             console.log(err);

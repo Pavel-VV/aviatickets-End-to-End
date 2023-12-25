@@ -5,5 +5,12 @@
         "name_translations": {
             "en": "Wizz Air"
         }
+    },
+    {
+        "name": "Победа",
+        "code": "DP",
+        "name_translations": {
+            "en": "Pobeda"
+        }
     }
 ]
