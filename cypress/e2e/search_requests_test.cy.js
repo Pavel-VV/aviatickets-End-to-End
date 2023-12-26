@@ -2,14 +2,23 @@ context('Test search requests', () => {
     it('Visit home page', () => {
         cy.intercept('GET', 'https://aviasales-api.herokuapp.com/countries', { fixture: 'countries.json' }).as('getCountries')
         cy.intercept('GET', 'https://aviasales-api.herokuapp.com/cities', { fixture: 'cities.json' }).as('getCities')
-        // cy.intercept('GET', 'https://aviasales-api.herokuapp.com/airlines', { fixture: 'airlines.json' }).as('getAirlines')
+        cy.intercept('GET', 'https://aviasales-api.herokuapp.com/airlines', { fixture: 'airlines.json' }).as('getAirlines')
+        cy.intercept('GET', 'https://aviasales-api.herokuapp.com/prices/cheap*', { fixture: 'tickets.json' })
+        cy.intercept('GET', 'https://aviasales-api.herokuapp.com/prices/cheap*', (req) => {
+            console.log(req)
+            expect(req.query.currency).to.equal('USD')
+            // expect(req.query.depart_date).to.equal('2023-12')
+            expect(req.query.depart_date).to.match(/^\d{4}-\d{2}$/)
+            expect(req.query.destination).to.equal('PAR')
+            expect(req.query.origin).to.equal('MOW')
+        })
 
         cy.visit('http://localhost:9000')
         cy.get('[data-hook=mainForm]').should('be.visible')
 
         cy.wait('@getCountries')
         cy.wait('@getCities')
-        // cy.wait('@getAirlines')
+        cy.wait('@getAirlines')
 
         //Form submit with correct request params
         cy.get('[data-hook=autocompleteOrigin]').as('autocompleteOrigin')
@@ -47,6 +56,12 @@ context('Test search requests', () => {
         cy.get('@modalButtons').contains('Ok').click()
 
         cy.get('@submitButton').click()
+
+        cy.get('[data-hook=ticketsContainer]').as('ticketsContainer')
+        cy.get('@ticketsContainer').find('.ticket-card').should('have.length', 2)
+
+        //Tickets display correctly
+
     })
 
     // it('Form submit with correct request params', () => {

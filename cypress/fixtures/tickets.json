@@ -1,0 +1,26 @@
+{
+    "data": {
+        "2023-12-29": {
+            "origin": "MOW",
+            "destination": "PAR",
+            "price": 569,
+            "airline": "DP",
+            "flight_number": 995,
+            "departure_at": "2023-12-29T10:15:00+03:00",
+            "return_at": "2024-01-03T07:15:00+01:00",
+            "transfers": 2,
+            "expires_at": "2023-12-26T20:12:53Z"
+        },
+        "2023-12-30": {
+            "origin": "MOW",
+            "destination": "PAR",
+            "price": 546,
+            "airline": "DP",
+            "flight_number": 993,
+            "departure_at": "2023-12-30T12:15:00+03:00",
+            "return_at": "2024-01-27T13:35:00+01:00",
+            "transfers": 2,
+            "expires_at": "2023-12-26T20:12:53Z"
+        }
+    }
+}
