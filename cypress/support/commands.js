@@ -29,7 +29,6 @@ Cypress.Commands.add('reachThePage', () => {
     cy.intercept('GET', 'https://aviasales-api.herokuapp.com/airlines', { fixture: 'airlines.json' }).as('getAirlines')
     cy.intercept('GET', 'https://aviasales-api.herokuapp.com/prices/cheap*', { fixture: 'tickets.json' })
     
-
     cy.visit('http://localhost:9000')
     cy.get('[data-hook=mainForm]').should('be.visible')
 

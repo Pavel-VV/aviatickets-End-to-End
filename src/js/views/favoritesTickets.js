@@ -50,10 +50,12 @@ class FavoritesTicketsUI {
                 <span class="ticket-transfers">Пересадок: ${ticket.transfers}</span>
                 <span class="ticket-flight-number">Номер рейса: ${ticket.flight_number}</span>
             </div>
-            <a
-                class="waves-effect waves-light btn-small pink darken-3 delete-favorite ml-auto"
-                >Delete</a
-            >
+            <div class="ml-auto">
+                <a
+                    class="waves-effect waves-light btn-small pink darken-3 delete-favorite ml-auto"
+                    >Delete</a
+                >
+            </div>
             </div>
         </div>
         `
