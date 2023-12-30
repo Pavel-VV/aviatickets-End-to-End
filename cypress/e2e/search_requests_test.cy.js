@@ -16,9 +16,12 @@ context('Test search requests', () => {
             expect(req.query.destination).to.equal('PAR')
             expect(req.query.origin).to.equal('MOW')
         })
+
+        cy.get('@submitButton').click()
     })
 
     it('Tickets display correctly', () => {
+        cy.get('@submitButton').click()
         cy.get('[data-hook=ticketsContainer]').as('ticketsContainer')
         cy.get('@ticketsContainer').find('.ticket-card').should('have.length', 2)
     })

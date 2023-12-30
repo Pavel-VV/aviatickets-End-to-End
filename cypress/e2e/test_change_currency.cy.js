@@ -1,0 +1,25 @@
+context('Test change currency', () => {
+    beforeEach(() => {
+        cy.reachThePage()
+        cy.initElements()
+        cy.filleTheForm()
+    })
+
+    it('Change currency USD', () => {
+        cy.intercept('GET', 'https://aviasales-api.herokuapp.com/prices/cheap*', (req) => {
+            console.log(req)
+            expect(req.query.currency).to.equal('USD')
+        })
+        
+        cy.get('@submitButton').click()
+    })
+
+    it('Change currency EUR', () => {
+        cy.choiceTheCurrency()
+
+        cy.intercept('GET', 'https://aviasales-api.herokuapp.com/prices/cheap*', (req) => {
+            expect(req.query.currency).to.equal('EUR')
+        })
+        cy.get('@submitButton').click()
+    })
+})

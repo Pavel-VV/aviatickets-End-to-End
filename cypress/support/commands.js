@@ -69,5 +69,10 @@ Cypress.Commands.add('filleTheForm', () => {
     cy.get('@isToday').should('have.class', 'is-selected')
     cy.get('@modalButtons').contains('Ok').click()
 
-    cy.get('@submitButton').click()
+    // cy.get('@submitButton').click()
+})
+
+Cypress.Commands.add('choiceTheCurrency', () => {
+    cy.get('[data-hook=currencySelect]').click()
+    cy.get('[data-hook=currencySelect] .dropdown-content li').contains('€ Euro').click()
 })
