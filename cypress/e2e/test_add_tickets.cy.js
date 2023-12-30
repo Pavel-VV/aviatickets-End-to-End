@@ -51,24 +51,23 @@ context('Test add tickets', () => {
 
     it('Add favorite tickets', () => {
         cy.get('[data-hook=ticketsContainer] .ticket-card:first .add-favorite').as('firstTicket')
-        // cy.get('[data-hook=ticketsContainer] .ticket-card:second .add-favorite').as('secondTicket')
+        cy.get('[data-hook=ticketsContainer] .ticket-card:last .add-favorite').as('lastTicket')
         
         cy.get('@firstTicket').click()
-        // cy.get('@secondTicket').click()
-        cy.get('[data-hook=favoritesTickets]').click()
+        cy.get('@lastTicket').click()
 
-        cy.get('[data-hook=favoritesTickets] .dropdown-content').find('.favorite-item').should('have.length', 1)
-        
-        
+        cy.get('[data-hook=favoritesTickets] .dropdown-content').find('.favorite-item').should('have.length', 2)
     })
 
     it('Delete favorite ticket', () => {
         cy.get('[data-hook=ticketsContainer] .ticket-card:first .add-favorite').as('firstTicket')
+        cy.get('[data-hook=ticketsContainer] .ticket-card:last .add-favorite').as('lastTicket')
         
         cy.get('@firstTicket').click()
+        cy.get('@lastTicket').click()
         cy.get('[data-hook=favoritesTickets]').click()
 
         cy.get('[data-hook=favoritesTickets] .dropdown-content .favorite-item:first .delete-favorite').click()
-        // cy.get('[data-hook=favoritesTickets] .dropdown-content').find('.favorite-item').should('have.length', 0)
-    })
+        cy.get('[data-hook=favoritesTickets] .dropdown-content').find('.favorite-item').should('have.length', 1)
+    })    
 })

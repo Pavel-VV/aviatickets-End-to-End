@@ -16,7 +16,8 @@ class FavoritesTicketsUI {
 
     clearFavoriteTicket(ticketId) {
         const delTicket = this.container.querySelector(`[data-ticket-id = ${ticketId}]`);
-        delTicket.innerHTML = '';
+        // delTicket.innerHTML = '';
+        delTicket.remove();
         // console.log(delTicket);
 
     }
